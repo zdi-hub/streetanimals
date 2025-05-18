@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: streetanimals
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn streetanimals.wsgi
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: streetanimals.settings
+      - key: PYTHON_VERSION
+        value: 3.11
